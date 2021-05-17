@@ -14,10 +14,25 @@
       "./src/scripts/background.js"
     ]
   },
-  "options_page": "./options.html",
+  "options_page": "./src/options.html",
   "browser_action": {
     "default_popup": "./src/popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.realestate.com.au/*"
+      ],
+      "js": [
+        "./src/scripts/content_script.js"
+      ],
+      "css": [
+        "./src/styles/style.css"
+      ],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ],
   "permissions": [
     "tabs",
     "https://www.realestate.com.au/*",
